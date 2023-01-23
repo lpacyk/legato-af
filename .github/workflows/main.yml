@@ -1,6 +1,6 @@
 name: Build image based on Legato and Octave master
 on:
-  workflow_dispatch
+  workflow_dispatch:
   workflow_call:
     secrets:
       SSH_PRIVATE_KEY:
