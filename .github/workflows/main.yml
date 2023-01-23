@@ -17,6 +17,7 @@ jobs:
           with:
             repository: flowthings/brkedgepkg
             ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+            token: ${{ secrets.RUNNER_TOKEN }}
             submodules: true
 
         - name: Checkout legato
