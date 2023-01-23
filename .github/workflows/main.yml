@@ -35,4 +35,4 @@ jobs:
           run: |
             docker run -v $GITHUB_WORKSPACE/brkedgepkg/tools/scripts/build_latest:/home/octave/scripts -v $GITHUB_WORKSPACE/legato-src:/home/octave/legato_framework -v $GITHUB_WORKSPACE/brkedgepkg:/home/octave/brkedgepkg local legato
             docker run -v $GITHUB_WORKSPACE/brkedgepkg/tools/scripts/build_latest:/home/octave/scripts -v $GITHUB_WORKSPACE/legato-src:/home/octave/legato_framework -v $GITHUB_WORKSPACE/brkedgepkg:/home/octave/brkedgepkg local octave
-            ls $GITHUB_WORKSPACE/build
+            tree $GITHUB_WORKSPACE/brkedgepkg/build
