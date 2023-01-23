@@ -17,12 +17,10 @@ jobs:
           with:
             repository: flowthings/brkedgepkg
             ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-            token: ${{ secrets.RUNNER_TOKEN }}
             submodules: true
 
         - name: Checkout legato
           run: |
-               cd ..
                curl https://storage.googleapis.com/git-repo-downloads/repo > ./repo
                mkdir -p legato-src && cd legato-src
                ../repo init --depth 1  -u git://gerrit.legato/manifest < /dev/null
