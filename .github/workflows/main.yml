@@ -16,7 +16,7 @@ jobs:
           uses: actions/checkout@v3
           with:
             repository: flowthings/brkedgepkg
-            path: './brkedgepkg'
+            path: '../brkedgepkg'
             ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
             token: ${{ secrets.RUNNER_TOKEN }}
             submodules: true
@@ -29,7 +29,7 @@ jobs:
                ../repo init --depth 1  -u ssh://gerrit.legato:29418/manifest < /dev/null
                ../repo sync -j 1 --fail-fast # options to increase stability
         - name: Docker build
-          run: cd .. && docker build -t local brkedgepkg/tools/scripts/build_latest
+          run: cd .. && docker build -t local legato-af/brkedgepkg/tools/scripts/build_latest
 
         - name : Docker run
           run: |
