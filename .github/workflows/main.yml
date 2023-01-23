@@ -29,10 +29,10 @@ jobs:
                ../repo init --depth 1  -u ssh://gerrit.legato:29418/manifest < /dev/null
                ../repo sync -j 1 --fail-fast # options to increase stability
         - name: Docker build
-          run: cd .. && docker build -t local legato-af/brkedgepkg/tools/scripts/build_latest
+          run: cd .. && docker build -t local $GITHUB_WORKSPACE/brkedgepkg/tools/scripts/build_latest
 
         - name : Docker run
           run: |
-            docker run -v $GITHUB_WORKSPACE/tools/scripts/build_latest:/home/octave/scripts -v $GITHUB_WORKSPACE/../legato_framework:/home/octave/legato_framework -v $GITHUB_WORKSPACE:/home/octave/brkedgepkg local legato
-            docker run -v $GITHUB_WORKSPACE/tools/scripts/build_latest:/home/octave/scripts -v $GITHUB_WORKSPACE/../legato_framework:/home/octave/legato_framework -v $GITHUB_WORKSPACE:/home/octave/brkedgepkg local octave
+            docker run -v $GITHUB_WORKSPACE/tools/scripts/build_latest:/home/octave/scripts -v $GITHUB_WORKSPACE/legato-src:/home/octave/legato_framework -v $GITHUB_WORKSPACE/brkedgepkg:/home/octave/brkedgepkg local legato
+            docker run -v $GITHUB_WORKSPACE/tools/scripts/build_latest:/home/octave/scripts -v $GITHUB_WORKSPACE/legato-src:/home/octave/legato_framework -v $GITHUB_WORKSPACE/brkedgepkg:/home/octave/brkedgepkg local octave
             ls $GITHUB_WORKSPACE/build
