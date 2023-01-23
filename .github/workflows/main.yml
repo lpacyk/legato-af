@@ -25,7 +25,7 @@ jobs:
                curl https://storage.googleapis.com/git-repo-downloads/repo > ./repo
                chmod 775 repo
                mkdir -p legato-src && cd legato-src
-               ../repo init --depth 1  -u git://gerrit.legato/manifest < /dev/null
+               ../repo init --depth 1  -u ssh://gerrit.legato:29418/manifest < /dev/null
                ../repo sync -j 1 --fail-fast # options to increase stability
         - name: Docker build
           run: cd .. && docker build -t local brkedgepkg/tools/scripts/build_latest
